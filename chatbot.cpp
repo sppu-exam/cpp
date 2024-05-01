@@ -70,8 +70,8 @@ void chat()
         }
         else
         {
-            vector<string> responses = {"I'm not sure I understand.", "Could you please repeat that?", "Tell me more!"};
-            cout << responses[rand() % responses.size()] << endl;
+          
+            cout <<"I'm not sure I understand."<< endl;
         }
     }
 }
