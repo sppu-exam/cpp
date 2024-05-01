@@ -15,8 +15,9 @@ void BFS(int start, vector<vector<int>> &graph, vector<bool> &visited)
         q.pop();
         cout << "currently on: " << current << endl;
 
-        for (int neighbor : graph[current])
+        for (int i = 0; i < graph[current].size(); ++i)
         {
+            int neighbor = graph[current][i];
             if (!visited[neighbor])
             {
                 visited[neighbor] = true;
@@ -30,8 +31,9 @@ void DFS(int current, vector<vector<int>> &graph, vector<bool> &visited)
 {
     visited[current] = true; // marking the active node as visited
     cout << "currently on: " << current << endl;
-    for (auto node : graph[current])
+    for (int i = 0; i < graph[current].size(); ++i)
     { // iterate through all of its neighbors
+        int node = graph[current][i];
         if (!visited[node])
         {
             DFS(node, graph, visited); // send DFS if it's a new node
@@ -46,7 +48,7 @@ int main()
 
     vector<vector<int>> graph(n + 1);
     vector<bool> visited(n + 1, false);
-    cout << "enter values";
+    cout << "enter values: ";
     for (int i = 0; i < k; i++)
     {
         int a, b;
@@ -56,12 +58,12 @@ int main()
     }
 
     cout << "BFS Output:\n";
-    BFS(0, graph, visited); // starting algorithm from node 1
+    BFS(1, graph, visited); // starting algorithm from node 1
 
     fill(visited.begin(), visited.end(), false);
 
     cout << "\nDFS Output:\n";
-    DFS(0, graph, visited); // starting algorithm from node 1
+    DFS(1, graph, visited); // starting algorithm from node 1
 
     return 0;
 }
